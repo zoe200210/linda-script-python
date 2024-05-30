@@ -37,8 +37,6 @@ python main.py
 ### Ejemplo de Salida
 
 ```bash
-plaintext
-Copiar código
 Hola Pvto
 ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 Selecciona el tono en el que deseas componer tu cancion: G
