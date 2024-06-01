@@ -96,48 +96,146 @@ print(notas)
 nota_a_desplazar = str(input("Selecciona el tono en el que deseas componer tu cancion: ")).upper()
 nueva_lista = desplazar_nota_y_reordenar(notas, nota_a_desplazar)
 
-mayor_menor = str(input("En que tono quieres comenzar MAYOR o MENOR: ")).lower()
+progresion = str(input("Con que progrecion quieres componer ESPAÑOL, ESTANDAR, CIRCULO: ")).lower()
 
-if (mayor_menor == "mayor"):
-    nueva_lista[5]+="m"
+if (progresion == "español"):
+    print("Podrias usar esta secuencia de acordes: ")
+    nueva_lista[0]+="m"
+    nueva_lista[7]+="7"
+    print(nueva_lista[0], nueva_lista[10], nueva_lista[8], nueva_lista[7], sep=", ")
+    indices = [0, 10, 8, 7,0]
+    sonidos = [nueva_lista[i] for i in indices]
+    sonido(sonidos)
     
-    tempo = int(input("Cuantos tono quieres que lleve la cancion: "))
-    if (tempo == 4):
-    #
-        print("Podrias usar esta secuencia de acordes: ")
-        print(nueva_lista[0], nueva_lista[5], nueva_lista[10], nueva_lista[3], sep=", ")
-        indices = [0, 5, 10, 3]
-        sonidos = [nueva_lista[i] for i in indices]
-        sonido(sonidos)
-    elif (tempo == 8):
-        print("Podrias usar esta secuencia de acordes: ")
-        print(nueva_lista[0], nueva_lista[5], nueva_lista[10], nueva_lista[3], nueva_lista[8], nueva_lista[2], nueva_lista[7], sep=", ")
-        indices = [0, 5, 10, 3, 8, 2, 7]
-        sonidos = [nueva_lista[i] for i in indices]
-        sonido(sonidos)
-    else:
-        print("No puedes elejir compases incompletos D:")
-        
-elif (mayor_menor == "menor"):
+elif (progresion == "circulo"):
+    print("Podrias usar esta secuencia de acordes: ")
+    nueva_lista[9]+="m"
+    nueva_lista[2]+="m"
+    nueva_lista[7]+="7"
+    print(nueva_lista[0], nueva_lista[9], nueva_lista[2], nueva_lista[7], sep=", ")
+    indices = [0, 9, 2, 7,0]
+    sonidos = [nueva_lista[i] for i in indices]
+    sonido(sonidos)
     
-    tempo = int(input("Cuantos tono quieres que lleve la cancion: "))
-    if (tempo == 4):
+elif (progresion == "estandar"):
+    mayor_menor = str(input("En que tono quieres comenzar MAYOR o MENOR: ")).lower()
+
+    if (mayor_menor == "mayor"):
         
-        print("Podrias usar esta secuencia de acordes: ")
-        nueva_lista[0]+="m"
-        nueva_lista[5]+="m"
-        nueva_lista[3]+="7"
-        print(nueva_lista[0], nueva_lista[5], nueva_lista[10], nueva_lista[3], sep=", ")
-        indices = [0, 5, 10, 3]
-        sonidos = [nueva_lista[i] for i in indices]
-        sonido(sonidos)
-        
-    elif (tempo == 8):
+        tempo = int(input("Cuantos tonos quieres que lleve la cancion: "))
+        if (tempo == 2):
+            print("Podrias usar esta secuencia de acordes: ")
+            nueva_lista[5]+="m"
+            print(nueva_lista[0], nueva_lista[5], sep=", ")
+            indices = [0, 5, 0]
+            sonidos = [nueva_lista[i] for i in indices]
+            sonido(sonidos)
             
-        print("Podrias usar esta secuencia de acordes: ")
-        print(nueva_lista[0], nueva_lista[5], nueva_lista[10], nueva_lista[3], nueva_lista[8], nueva_lista[2], nueva_lista[7], sep=", ")
-        indices = [0, 5, 10, 3, 8, 2, 7]
-        sonidos = [nueva_lista[i] for i in indices]
-        sonido(sonidos)
-    else:
+            siguiente_patron = str(input("¿Te gusto esta combinacion?: ")).lower()
+            if (siguiente_patron == "no"):
+                print("¿Que tal esta nueva combinacion?: ")
+                nueva_lista[7]+="7"
+                print(nueva_lista[0], nueva_lista[7], sep=", ")
+                indices = [0, 7, 0]
+                sonidos = [nueva_lista[i] for i in indices]
+                sonido(sonidos)
+            elif (siguiente_patron == "si"):
+                print("Diviertete :D")    
+                
+        elif (tempo == 4):
+            print("Podrias usar esta secuencia de acordes: ")
+            nueva_lista[9]+="m"
+            nueva_lista[7]+="7"
+            print(nueva_lista[0], nueva_lista[9], nueva_lista[2], nueva_lista[7], sep=", ")
+            indices = [0, 9, 2, 7, 0]
+            sonidos = [nueva_lista[i] for i in indices]
+            sonido(sonidos)
+            
+            siguiente_patron = str(input("¿Te gusto esta combinacion?: ")).lower()
+            if (siguiente_patron == "no"):
+                print("¿Que tal esta nueva combinacion?: ")
+                nueva_lista[5]+="7"
+                print(nueva_lista[0], nueva_lista[5], sep=", ")
+                indices = [0, 5, 0]
+                sonidos = [nueva_lista[i] for i in indices]
+                sonido(sonidos)
+            elif (siguiente_patron == "si"):
+                print("Diviertete :D")    
+                
+        elif (tempo == 7):
+            print("Podrias usar esta secuencia de acordes: ")
+            nueva_lista[4]+="7"
+            nueva_lista[9]+="m"
+            nueva_lista[2]+="m"
+            nueva_lista[7]+="7"
+            
+            print(nueva_lista[0], nueva_lista[4], nueva_lista[9], nueva_lista[4], nueva_lista[5], nueva_lista[2], nueva_lista[7], sep=", ")
+            indices = [0, 4, 9, 4, 5, 2, 7, 0]
+            sonidos = [nueva_lista[i] for i in indices]
+            sonido(sonidos)
+            
+            siguiente_patron = str(input("¿Te gusto esta combinacion?: ")).lower()
+            if (siguiente_patron == "no"):
+                print("¿Que tal esta nueva combinacion?: ")
+                nueva_lista[5]+="7"
+                print(nueva_lista[0], nueva_lista[5], sep=", ")
+                indices = [0, 5]
+                sonidos = [nueva_lista[i] for i in indices]
+                sonido(sonidos)
+            elif (siguiente_patron == "si"):
+                print("Diviertete :D")    
+                
+        else:
+            print("No puedes elejir compases incompletos D:")
+            
+    elif (mayor_menor == "menor"):
+        
+        tempo = int(input("Cuantos tono quieres que lleve la cancion: "))
+        if (tempo == 2):
+            print("Podrias usar esta secuencia de acordes: ")
+            nueva_lista[0]+="m"
+            nueva_lista[7]+="7"
+            print(nueva_lista[0], nueva_lista[7], sep=", ")
+            indices = [0, 7]
+            sonidos = [nueva_lista[i] for i in indices]
+            sonido(sonidos)
+            
+            siguiente_patron = str(input("¿Te gusto esta combinacion?: ")).lower()
+            if (siguiente_patron == "no"):
+                print("¿Que tal esta nueva combinacion?: ")
+                nueva_lista[5]+="7"
+                print(nueva_lista[0], nueva_lista[5], sep=", ")
+                indices = [0, 5]
+                sonidos = [nueva_lista[i] for i in indices]
+                sonido(sonidos)
+                
+            elif (siguiente_patron == "si"):
+                print("Diviertete :D")    
+        elif (tempo == 4):
+            
+            print("Podrias usar esta secuencia de acordes: ")
+            print(nueva_lista[0], nueva_lista[5],nueva_lista[10], nueva_lista[3], sep=", ")
+            indices = [0, 5, 10, 3]
+            sonidos = [nueva_lista[i] for i in indices]
+            sonido(sonidos)
+            
+            siguiente_patron = str(input("¿Te gusto esta combinacion?: ")).lower()
+            if (siguiente_patron == "no"):
+                print("Que tal esta combinacion: ")
+                print(nueva_lista[0], nueva_lista[7], sep=", ")
+                indices = [0, 7]
+                sonidos = [nueva_lista[i] for i in indices]
+                sonido(sonidos)
+                
+            elif (siguiente_patron == "si"):
+                print("Diviertete :D")
+            
+        elif (tempo == 7):
+            print("Podrias usar esta secuencia de acordes: ")
+            print(nueva_lista[0], nueva_lista[5], nueva_lista[10], nueva_lista[3], nueva_lista[8], nueva_lista[2], nueva_lista[7], sep=", ")
+            indices = [0, 5, 10, 3, 8, 2, 7]
+            sonidos = [nueva_lista[i] for i in indices]
+            sonido(sonidos)
+            
+        else:
             print("No puedes elejir compases incompletos")
