@@ -1,4 +1,4 @@
-# Linda: Composición de Canciones V.1
+# Linda: Composición de Canciones V.3
 
 Linda es un programa en Python diseñado para ayudar en la composición de canciones. Este script permite seleccionar un tono base y generar una secuencia de acordes en función de la tonalidad (mayor o menor) y el número de tonos deseado.
 
